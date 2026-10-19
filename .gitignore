@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Build artifacts & compiled bundle
+AnalisDisk.app/
+.build/
+.swiftpm/
+*.o
+*.dSYM/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
