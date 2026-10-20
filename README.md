@@ -105,8 +105,8 @@ flowchart LR
 
 1. **Clonar el repositorio y entrar a la carpeta del proyecto**:
    ```bash
-   git clone <URL_DEL_REPOSITORIO>
-   cd mac-disk-scope
+   git clone https://github.com/migzam10/MacDiskScopeApp.git
+   cd MacDiskScopeApp
    ```
 
 2. **Compilar el paquete nativo `.app`**:
