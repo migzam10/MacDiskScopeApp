@@ -1,10 +1,10 @@
-# <img src="docs/icons/disk.svg" width="22" height="22" align="absmiddle" /> AnalisDisk — Analizador Visual de Almacenamiento y Comparador de Archivos para macOS
+# <img src="docs/icons/disk.svg" width="22" height="22" align="absmiddle" /> MacDiskScope — Analizador Visual de Almacenamiento y Comparador de Archivos para macOS
 
 <p align="center">
-  <img src="docs/images/01-por-tipo-y-tamano.png" alt="AnalisDisk - Vista Principal por Tipo y Tamaño" width="100%" />
+  <img src="docs/images/01-por-tipo-y-tamano.png" alt="MacDiskScope - Vista Principal por Tipo y Tamaño" width="100%" />
 </p>
 
-**AnalisDisk** es una aplicación gráfica nativa para **macOS** construida en **Swift y SwiftUI** (junto con su utilidad original de línea de comandos `analyze_dupes.py`) diseñada para inspeccionar de forma ultrarrápida qué archivos y carpetas están consumiendo el almacenamiento de tu Mac, agruparlos por **categoría de tipo de archivo** y ordenarlos del **más pesado al más liviano**, además de detectar **duplicados exactos por contenido (Hash MD5)** y **archivos con el mismo nombre pero diferente contenido** para decidir qué enviar de forma segura a la Papelera.
+**MacDiskScope** es una aplicación gráfica nativa para **macOS** construida en **Swift y SwiftUI** (junto con su utilidad original de línea de comandos `analyze_dupes.py`) diseñada para inspeccionar de forma ultrarrápida qué archivos y carpetas están consumiendo el almacenamiento de tu Mac, agruparlos por **categoría de tipo de archivo** y ordenarlos del **más pesado al más liviano**, además de detectar **duplicados exactos por contenido (Hash MD5)** y **archivos con el mismo nombre pero diferente contenido** para decidir qué enviar de forma segura a la Papelera.
 
 ---
 
@@ -77,7 +77,7 @@ Encuentra archivos que comparten exactamente el mismo nombre (por ejemplo, disti
 
 ## <img src="docs/icons/cpu.svg" width="18" height="18" align="absmiddle" /> Arquitectura y Flujo de Análisis en Dos Fases
 
-Para garantizar que la interfaz gráfica jamás se bloquee al analizar discos completos o carpetas con cientos de miles de archivos, **AnalisDisk** ejecuta un motor asíncrono en dos fases:
+Para garantizar que la interfaz gráfica jamás se bloquee al analizar discos completos o carpetas con cientos de miles de archivos, **MacDiskScope** ejecuta un motor asíncrono en dos fases:
 
 ```mermaid
 flowchart LR
@@ -101,12 +101,12 @@ flowchart LR
     xcode-select --install
     ```
 
-### Compilación y Ejecución de la App Gráfica (`AnalisDisk.app`)
+### Compilación y Ejecución de la App Gráfica (`MacDiskScope.app`)
 
 1. **Clonar el repositorio y entrar a la carpeta del proyecto**:
    ```bash
    git clone <URL_DEL_REPOSITORIO>
-   cd analis-disk
+   cd mac-disk-scope
    ```
 
 2. **Compilar el paquete nativo `.app`**:
@@ -115,16 +115,16 @@ flowchart LR
    chmod +x build.sh
    ./build.sh
    ```
-   Esto compilará los módulos de `Sources/` con optimización `-O` y generará el paquete **`AnalisDisk.app`** en la raíz del proyecto.
+   Esto compilará los módulos de `Sources/` con optimización `-O` y generará el paquete **`MacDiskScope.app`** en la raíz del proyecto.
 
 3. **Abrir la aplicación**:
    ```bash
-   open AnalisDisk.app
+   open MacDiskScope.app
    ```
-   *(Opcional)* Puedes arrastrar **`AnalisDisk.app`** directamente a tu carpeta **`/Applications` (Aplicaciones)** en Finder para tenerla siempre disponible desde Launchpad o Spotlight.
+   *(Opcional)* Puedes arrastrar **`MacDiskScope.app`** directamente a tu carpeta **`/Applications` (Aplicaciones)** en Finder para tenerla siempre disponible desde Launchpad o Spotlight.
 
 > [!TIP]
-> **Permisos de Acceso Total al Disco (Full Disk Access)**: Si deseas analizar **Todo el Disco (`/`)** o carpetas protegidas de macOS, puedes otorgar permiso a `AnalisDisk.app` en *Ajustes del Sistema → Privacidad y seguridad → Acceso total al disco*.
+> **Permisos de Acceso Total al Disco (Full Disk Access)**: Si deseas analizar **Todo el Disco (`/`)** o carpetas protegidas de macOS, puedes otorgar permiso a `MacDiskScope.app` en *Ajustes del Sistema → Privacidad y seguridad → Acceso total al disco*.
 
 ---
 
@@ -141,9 +141,9 @@ python3 analyze_dupes.py
 ## <img src="docs/icons/folder.svg" width="18" height="18" align="absmiddle" /> Estructura del Proyecto
 
 ```text
-analis-disk/
+mac-disk-scope/
 ├── Sources/
-│   ├── AnalisDiskApp.swift       # Punto de entrada @main y configuración de ventana macOS
+│   ├── MacDiskScopeApp.swift     # Punto de entrada @main y configuración de ventana macOS
 │   ├── Models.swift              # Modelos de datos, categorías de archivo, nodos y formateadores
 │   ├── DiskScanner.swift         # Motor asíncrono de escaneo, árbol de carpetas, MD5 y Papelera
 │   ├── ContentView.swift         # Barra lateral, métricas superiores y carrito de Papelera
@@ -154,6 +154,6 @@ analis-disk/
 │   ├── icons/                    # Iconos vectoriales minimalistas monocromáticos (SVG)
 │   └── images/                   # Capturas de pantalla demostrativas con datos ficticios
 ├── analyze_dupes.py              # Script original en Python para análisis en consola
-├── build.sh                      # Script de compilación nativa de AnalisDisk.app
+├── build.sh                      # Script de compilación nativa de MacDiskScope.app
 └── README.md                     # Documentación visual del proyecto
 ```

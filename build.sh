@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-APP_NAME="AnalisDisk"
+APP_NAME="MacDiskScope"
 APP_BUNDLE="${APP_NAME}.app"
 CONTENTS_DIR="${APP_BUNDLE}/Contents"
 MACOS_DIR="${CONTENTS_DIR}/MacOS"
@@ -19,11 +19,11 @@ cat > "${CONTENTS_DIR}/Info.plist" <<EOF
     <key>CFBundleExecutable</key>
     <string>${APP_NAME}</string>
     <key>CFBundleIdentifier</key>
-    <string>com.migzam.analisdisk</string>
+    <string>com.migzam.macdiskscope</string>
     <key>CFBundleName</key>
     <string>${APP_NAME}</string>
     <key>CFBundleDisplayName</key>
-    <string>AnalisDisk</string>
+    <string>MacDiskScope</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
@@ -35,13 +35,13 @@ cat > "${CONTENTS_DIR}/Info.plist" <<EOF
     <key>NSHighResolutionCapable</key>
     <true/>
     <key>NSDesktopFolderUsageDescription</key>
-    <string>AnalisDisk necesita acceso para analizar el tamaño de los archivos y detectar duplicados en tu Escritorio.</string>
+    <string>MacDiskScope necesita acceso para analizar el tamaño de los archivos y detectar duplicados en tu Escritorio.</string>
     <key>NSDocumentsFolderUsageDescription</key>
-    <string>AnalisDisk necesita acceso para analizar el tamaño de los archivos y detectar duplicados en tus Documentos.</string>
+    <string>MacDiskScope necesita acceso para analizar el tamaño de los archivos y detectar duplicados en tus Documentos.</string>
     <key>NSDownloadsFolderUsageDescription</key>
-    <string>AnalisDisk necesita acceso para analizar el tamaño de los archivos y detectar duplicados en tus Descargas.</string>
+    <string>MacDiskScope necesita acceso para analizar el tamaño de los archivos y detectar duplicados en tus Descargas.</string>
     <key>NSRemovableVolumesUsageDescription</key>
-    <string>AnalisDisk necesita acceso para analizar discos externos o volúmenes seleccionados.</string>
+    <string>MacDiskScope necesita acceso para analizar discos externos o volúmenes seleccionados.</string>
 </dict>
 </plist>
 EOF
@@ -54,7 +54,7 @@ swiftc -O \
     Sources/CategoryAndFilesView.swift \
     Sources/DuplicatesView.swift \
     Sources/ContentView.swift \
-    Sources/AnalisDiskApp.swift \
+    Sources/MacDiskScopeApp.swift \
     -o "${MACOS_DIR}/${APP_NAME}"
 
 chmod +x "${MACOS_DIR}/${APP_NAME}"

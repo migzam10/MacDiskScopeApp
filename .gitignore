@@ -5,6 +5,7 @@
 ._*
 
 # Build artifacts & compiled bundle
+MacDiskScope.app/
 AnalisDisk.app/
 .build/
 .swiftpm/

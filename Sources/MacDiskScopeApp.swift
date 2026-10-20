@@ -13,11 +13,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 }
 
 @main
-struct AnalisDiskApp: App {
+struct MacDiskScopeApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
-        WindowGroup("AnalisDisk — Analizador Visual de Disco y Duplicados") {
+        WindowGroup("MacDiskScope — Analizador Visual de Disco y Duplicados") {
             ContentView()
                 .frame(minWidth: 1080, minHeight: 680)
         }
